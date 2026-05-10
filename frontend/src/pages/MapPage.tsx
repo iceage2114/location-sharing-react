@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState, useEffect } from "react";
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer, ZoomControl } from "react-leaflet";
 import { Map as LeafletMap } from "leaflet";
 import { useAuthStore } from "../store/authStore";
 import { useLocationStore } from "../store/locationStore";
@@ -61,9 +61,11 @@ export default function MapPage() {
       <MapContainer
         center={[40.7128, -74.006]}
         zoom={12}
+        zoomControl={false}
         style={{ height: "100%", width: "100%", position: "absolute", inset: 0 }}
         ref={mapRef}
       >
+        <ZoomControl position="bottomright" />
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -154,8 +156,8 @@ export default function MapPage() {
         </div>
       </div>
 
-      {/* Hamburger toggle button — always visible */}
-      <button
+      {/* Hamburger toggle button — hidden when sidebar is open (sidebar has its own close button) */}
+      {!sheetOpen && <button
         onClick={() => setSheetOpen((o) => !o)}
         style={{
           position: "absolute", top: 12, left: 12, zIndex: 1003,
@@ -172,7 +174,7 @@ export default function MapPage() {
         <span style={{ display: "block", width: 20, height: 2, background: "#374151", borderRadius: 1 }} />
         <span style={{ display: "block", width: 20, height: 2, background: "#374151", borderRadius: 1 }} />
         <span style={{ display: "block", width: 20, height: 2, background: "#374151", borderRadius: 1 }} />
-      </button>
+      </button>}
 
     </div>
   );
