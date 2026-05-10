@@ -68,8 +68,8 @@ export default function GroupPage() {
   });
 
   return (
-    <div style={{ maxWidth: 560, margin: "2rem auto", padding: "1.5rem", fontFamily: "system-ui,sans-serif" }}>
-      <button onClick={() => navigate("/")} style={{ background: "none", border: "none", cursor: "pointer", fontSize: 14, color: "#4f46e5", marginBottom: "1rem" }}>? Back to map</button>
+    <div style={{ maxWidth: 560, width: "100%", margin: "0 auto", padding: "1.5rem 1rem", fontFamily: "system-ui,sans-serif" }}>
+      <button onClick={() => navigate("/")} style={{ background: "none", border: "none", cursor: "pointer", fontSize: 14, color: "#4f46e5", marginBottom: "1rem" }}>Back to map</button>
       <h1 style={{ marginBottom: "1.5rem" }}>Groups</h1>
       {error && <p style={{ color: "red" }}>{error}</p>}
 

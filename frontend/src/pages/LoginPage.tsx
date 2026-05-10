@@ -22,7 +22,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div style={{ maxWidth: 380, margin: "10vh auto", padding: "2rem", fontFamily: "system-ui,sans-serif" }}>
+    <div style={{ maxWidth: 380, width: "100%", margin: "10vh auto", padding: "2rem", fontFamily: "system-ui,sans-serif" }}>
       <h1 style={{ marginBottom: "1.5rem" }}>Sign in</h1>
       {error && <p style={{ color: "red", marginBottom: "1rem" }}>{error}</p>}
       <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
@@ -61,7 +61,7 @@ export default function LoginPage() {
           }
         }}
         onError={() => setError("Google sign-in failed.")}
-        width={360}
+        useOneTap
       />
       <p style={{ marginTop: "1.5rem", textAlign: "center", fontSize: 14 }}>
         No account? <Link to="/register">Register</Link>
